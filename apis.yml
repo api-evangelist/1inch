@@ -1,0 +1,262 @@
+aid: 1inch
+url: https://raw.githubusercontent.com/api-evangelist/1inch/refs/heads/main/apis.yml
+name: 1inch
+kind: company
+description: >-
+  1inch is a leading DeFi aggregator providing best-execution swaps across decentralized
+  exchanges, an intent-based Fusion order flow, cross-chain Fusion+ swaps, limit orders,
+  and rich market data. The 1inch Developer Portal (business.1inch.com/portal) exposes
+  13+ REST APIs covering Swap, Orderbook, Spot Price, Token, Token Details, Charts,
+  Balance, Portfolio, Transaction Gateway, History, Traces, Gas Price, Web3 RPC, NFT,
+  and Domains across 14+ EVM and non-EVM chains, distributed under a single API key.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - DeFi
+  - DEX Aggregator
+  - Swap
+  - Limit Orders
+  - Fusion
+  - Web3
+  - RPC
+  - Market Data
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis:
+  - aid: 1inch:swap-api
+    name: 1inch Swap API
+    description: >-
+      Returns optimal swap routes and ready-to-sign transaction calldata across
+      aggregated DEX liquidity. Supports Classic Swap, intent-based Fusion, and
+      cross-chain Fusion+ flows.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/swap
+    tags:
+      - Swap
+      - Aggregation
+      - Fusion
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:orderbook-api
+    name: 1inch Orderbook API
+    description: >-
+      Limit Order Protocol orderbook — create, query, fill, and cancel signed limit
+      orders across supported EVM chains.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/orderbook
+    tags:
+      - Limit Orders
+      - Orderbook
+      - Trading
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:price-api
+    name: 1inch Spot Price API
+    description: >-
+      Real-time USD and reference spot prices for tokens across supported networks,
+      sourced from on-chain liquidity.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/price
+    tags:
+      - Price
+      - Market Data
+      - Spot
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:token-api
+    name: 1inch Token API
+    description: >-
+      Token metadata, lists, search, and verification across all 1inch-supported
+      networks.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/token
+    tags:
+      - Token
+      - Metadata
+      - Lists
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:token-details-api
+    name: 1inch Token Details API
+    description: >-
+      Enriched token details including market metrics, price history, and trading
+      stats for individual tokens.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/token-details
+    tags:
+      - Token
+      - Details
+      - Analytics
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:charts-api
+    name: 1inch Charts API
+    description: >-
+      Historical OHLCV chart data for tokens and trading pairs across supported
+      networks.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/charts
+    tags:
+      - Charts
+      - OHLCV
+      - History
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:balance-api
+    name: 1inch Balance API
+    description: >-
+      Token balance lookups and allowance checks for any wallet across supported
+      chains, returning balances in a unified JSON schema.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/balance
+    tags:
+      - Balance
+      - Wallet
+      - Allowance
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:portfolio-api
+    name: 1inch Portfolio API
+    description: >-
+      Cross-chain portfolio aggregation — wallet positions, protocol exposures,
+      profit and loss, fees, and value over time.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/portfolio
+    tags:
+      - Portfolio
+      - PnL
+      - Positions
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:transaction-gateway-api
+    name: 1inch Transaction Gateway API
+    description: >-
+      Submission gateway that broadcasts signed transactions and tracks status across
+      supported EVM chains.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/tx-gateway
+    tags:
+      - Transactions
+      - Broadcast
+      - Tracking
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:history-api
+    name: 1inch History API
+    description: >-
+      Unified wallet transaction history across all supported chains, decoded into
+      protocol-aware events (swaps, transfers, approvals, liquidity actions).
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/history
+    tags:
+      - History
+      - Transactions
+      - Wallet
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:traces-api
+    name: 1inch Traces API
+    description: >-
+      Detailed transaction trace data for debugging and analytics across supported
+      EVM chains.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/traces
+    tags:
+      - Traces
+      - Debugging
+      - Analytics
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:gas-price-api
+    name: 1inch Gas Price API
+    description: >-
+      Current gas-price recommendations (low / medium / high / instant) for supported
+      EVM chains, accounting for EIP-1559 base and priority fees.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/gas-price
+    tags:
+      - Gas
+      - Fees
+      - EVM
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:web3-rpc-api
+    name: 1inch Web3 RPC API
+    description: >-
+      Hosted JSON-RPC endpoints for 14+ EVM and non-EVM networks, exposed through the
+      1inch API key for unified rate limiting and access control.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/web3
+    tags:
+      - RPC
+      - JSON-RPC
+      - Web3
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:nft-api
+    name: 1inch NFT API
+    description: >-
+      Wallet NFT holdings, collection metadata, and floor prices across supported
+      chains.
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/nft
+    tags:
+      - NFT
+      - Collections
+      - Metadata
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+  - aid: 1inch:domains-api
+    name: 1inch Domains API
+    description: >-
+      Reverse and forward resolution for Web3 naming systems (ENS, Unstoppable
+      Domains, and other supported registries).
+    humanURL: https://business.1inch.com/portal/documentation
+    baseURL: https://api.1inch.dev/domains
+    tags:
+      - Domains
+      - ENS
+      - Resolution
+    properties:
+      - type: Documentation
+        url: https://business.1inch.com/portal/documentation
+common:
+  - type: Website
+    url: https://1inch.io
+  - type: Portal
+    url: https://portal.1inch.dev
+  - type: Documentation
+    url: https://business.1inch.com/portal/documentation
+  - type: GitHub
+    url: https://github.com/1inch
+  - type: Twitter
+    url: https://x.com/1inch
+  - type: Blog
+    url: https://blog.1inch.io
+integrations:
+  - name: Ethereum
+  - name: Base
+  - name: Arbitrum
+  - name: Optimism
+  - name: Polygon
+  - name: BNB Chain
+  - name: Avalanche
+  - name: Solana
+  - name: zkSync Era
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
