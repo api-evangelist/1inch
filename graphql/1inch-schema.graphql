@@ -1,0 +1,348 @@
+# 1inch GraphQL Schema (Composite)
+# Sources:
+#   - Mooniswap Subgraph: https://github.com/1inch/mooniswap-subgraph
+#   - Limit Order Protocol Subgraph: https://github.com/1inch/LimitSwapSubgraph
+#   - Candles Subgraph: https://github.com/1inch/candles-subgraph
+# All three are deployed on The Graph protocol indexing Ethereum Mainnet.
+
+# ─────────────────────────────────────────────
+# MOONISWAP AMM SUBGRAPH TYPES
+# ─────────────────────────────────────────────
+
+type MooniswapFactory @entity {
+  "Factory contract address"
+  id: ID!
+
+  "Number of trading pairs created"
+  pairCount: Int!
+  pairs: [Pair]!
+
+  "Total volume across all pairs (USD)"
+  totalVolumeUSD: BigDecimal!
+  "Total volume across all pairs (ETH)"
+  totalVolumeETH: BigDecimal!
+
+  "Total liquidity locked (USD)"
+  totalLiquidityUSD: BigDecimal!
+  "Total liquidity locked (ETH)"
+  totalLiquidityETH: BigDecimal!
+
+  "Cumulative transaction count"
+  txCount: BigInt!
+
+  "Reference for day-data lookups"
+  mostLiquidTokens: [TokenDayData!]!
+}
+
+type Token @entity {
+  "Token contract address"
+  id: ID!
+
+  "ERC-20 symbol"
+  symbol: String!
+  "ERC-20 name"
+  name: String!
+  "ERC-20 decimals"
+  decimals: BigInt!
+
+  "Total supply from the contract"
+  totalSupply: BigInt!
+
+  "Lifetime trade volume in token units"
+  tradeVolume: BigDecimal!
+  "Lifetime trade volume in USD"
+  tradeVolumeUSD: BigDecimal!
+
+  "Total number of swaps involving this token"
+  txCount: BigInt!
+
+  "Total liquidity in pool reserves"
+  totalLiquidity: BigDecimal!
+
+  "ETH-denominated price"
+  derivedETH: BigDecimal
+
+  "All pairs this token participates in"
+  allPairs: [Pair!]
+
+  "Most liquid pairs for historical reference"
+  mostLiquidPairs: [PairDayData]!
+}
+
+type Pair @entity {
+  "Pair contract address"
+  id: ID!
+  factory: MooniswapFactory! @derivedFrom(field: "pairs")
+
+  token0: Token!
+  token1: Token!
+  reserve0: BigDecimal!
+  reserve1: BigDecimal!
+  totalSupply: BigDecimal!
+
+  "ETH value of reserves"
+  reserveETH: BigDecimal!
+  "USD value of reserves"
+  reserveUSD: BigDecimal!
+  "ETH value tracked for global stats"
+  trackedReserveETH: BigDecimal!
+
+  "token1 per token0"
+  token0Price: BigDecimal!
+  "token0 per token1"
+  token1Price: BigDecimal!
+
+  volumeToken0: BigDecimal!
+  volumeToken1: BigDecimal!
+  volumeUSD: BigDecimal!
+  txCount: BigInt!
+  lpExtraFeeInToken0: BigDecimal!
+  lpExtraFeeInToken1: BigDecimal!
+
+  createdAtTimestamp: BigInt!
+  createdAtBlockNumber: BigInt!
+
+  liquidityPositions: [LiquidityPosition!] @derivedFrom(field: "pair")
+  mints: [Mint!] @derivedFrom(field: "pair")
+  burns: [Burn!] @derivedFrom(field: "pair")
+  swaps: [Swap!] @derivedFrom(field: "pair")
+}
+
+type User @entity {
+  "Wallet address"
+  id: ID!
+  liquidityPositions: [LiquidityPosition!] @derivedFrom(field: "user")
+  usdSwapped: BigDecimal!
+}
+
+type LiquidityPosition @entity {
+  id: ID!
+  user: User!
+  pair: Pair!
+  poolOwnership: BigDecimal
+  liquidityTokenBalance: BigDecimal!
+}
+
+type Transaction @entity {
+  "Transaction hash"
+  id: ID!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+  mints: [Mint]!
+  burns: [Burn]!
+  swaps: [Swap]!
+}
+
+type Mint @entity {
+  "txHash-index"
+  id: ID!
+  transaction: Transaction! @derivedFrom(field: "mints")
+  timestamp: BigInt!
+  pair: Pair!
+  to: Bytes!
+  liquidity: BigDecimal!
+  sender: Bytes
+  amount0: BigDecimal
+  amount1: BigDecimal
+  logIndex: BigInt
+  amountUSD: BigDecimal
+}
+
+type Burn @entity {
+  "txHash-index"
+  id: ID!
+  transaction: Transaction! @derivedFrom(field: "burns")
+  timestamp: BigInt!
+  pair: Pair!
+  liquidity: BigDecimal!
+  sender: Bytes
+  amount0: BigDecimal
+  amount1: BigDecimal
+  to: Bytes
+  logIndex: BigInt
+  amountUSD: BigDecimal
+  needsComplete: Boolean
+  feeTo: Bytes
+  feeLiquidity: BigDecimal
+}
+
+type Swap @entity {
+  "txHash-index"
+  id: ID!
+  transaction: Transaction! @derivedFrom(field: "swaps")
+  timestamp: BigInt!
+  pair: Pair!
+  sender: Bytes!
+  srcAmount: BigDecimal!
+  destAmount: BigDecimal!
+  "Source token address"
+  src: Bytes!
+  "Destination token address"
+  dest: Bytes!
+  referral: Bytes!
+  referralReward: BigDecimal!
+  lpExtraFeeInToken0: BigDecimal!
+  lpExtraFeeInToken1: BigDecimal!
+  logIndex: BigInt
+  amountUSD: BigDecimal!
+}
+
+"ETH/USD price reference bundle"
+type Bundle @entity {
+  id: ID!
+  ethPrice: BigDecimal!
+}
+
+"Protocol-wide daily aggregate"
+type MooniswapDayData @entity {
+  "Unix day timestamp / 86400"
+  id: ID!
+  date: Int!
+  dailyVolumeETH: BigDecimal!
+  dailyVolumeUSD: BigDecimal!
+  totalVolumeETH: BigDecimal!
+  totalLiquidityETH: BigDecimal!
+  totalVolumeUSD: BigDecimal!
+  totalLiquidityUSD: BigDecimal!
+  maxStored: Int
+  mostLiquidTokens: [TokenDayData!]!
+  txCount: BigInt!
+}
+
+"Per-pair hourly aggregate"
+type PairHourData @entity {
+  id: ID!
+  hourStartUnix: Int!
+  pair: Pair!
+  reserve0: BigDecimal!
+  reserve1: BigDecimal!
+  reserveUSD: BigDecimal!
+  hourlyVolumeToken0: BigDecimal!
+  hourlyVolumeToken1: BigDecimal!
+  hourlyVolumeUSD: BigDecimal!
+  hourlyTxns: BigInt!
+}
+
+"Per-pair daily aggregate"
+type PairDayData @entity {
+  id: ID!
+  date: Int!
+  pairAddress: Bytes!
+  token0: Token!
+  token1: Token!
+  reserve0: BigDecimal!
+  reserve1: BigDecimal!
+  reserveUSD: BigDecimal!
+  dailyVolumeToken0: BigDecimal!
+  dailyVolumeToken1: BigDecimal!
+  dailyVolumeUSD: BigDecimal!
+  dailyTxns: BigInt!
+}
+
+"Per-token daily aggregate"
+type TokenDayData @entity {
+  id: ID!
+  date: Int!
+  token: Token!
+  dailyVolumeToken: BigDecimal!
+  dailyVolumeETH: BigDecimal!
+  dailyVolumeUSD: BigDecimal!
+  dailyTxns: BigInt!
+  totalLiquidityToken: BigDecimal!
+  totalLiquidityETH: BigDecimal!
+  totalLiquidityUSD: BigDecimal!
+  priceUSD: BigDecimal!
+  maxStored: Int!
+  mostLiquidPairs: [PairDayData!]!
+}
+
+# ─────────────────────────────────────────────
+# LIMIT ORDER PROTOCOL SUBGRAPH TYPES
+# ─────────────────────────────────────────────
+
+"A 1inch Limit Order tracked by the Limit Order Protocol subgraph"
+type LimitOrder @entity {
+  "Unique order identifier"
+  id: ID!
+  "Number of state-change events for this order"
+  updatesCount: BigInt!
+  "Address that created the order"
+  makerAddress: Bytes!
+  "Address allowed to fill the order (zero = anyone)"
+  takerAddress: Bytes!
+  "Token offered by the maker"
+  makerAsset: Bytes!
+  "Token requested from the taker"
+  takerAsset: Bytes!
+  "Amount of makerAsset offered"
+  makerAmount: BigInt!
+  "Amount of takerAsset requested"
+  takerAmount: BigInt!
+  "Order expiry timestamp (Unix seconds)"
+  expiration: BigInt!
+  "Remaining unfilled makerAsset amount"
+  remainingAmount: BigInt!
+}
+
+# ─────────────────────────────────────────────
+# CANDLES (OHLCV) SUBGRAPH TYPES
+# ─────────────────────────────────────────────
+
+"A liquidity pool sourced from Uniswap V2 or V3, used to derive candle data"
+type Pool @entity(immutable: true) {
+  "Pool contract address"
+  id: Bytes!
+  pool: Bytes!
+  token0: Bytes!
+  token1: Bytes!
+  "Pool fee tier (V3 only; 0 for V2 pools)"
+  fee: Int!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+"A raw swap event captured from Uniswap V2/V3 pools for candle computation"
+type CandleSwap @entity(immutable: true) {
+  "txHash-logIndex"
+  id: Bytes!
+  pool: Bytes!
+  token0: Bytes!
+  token1: Bytes!
+  amount0: BigInt!
+  amount1: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+"An OHLCV candlestick for a token pair at a given time resolution"
+type Candle @entity(immutable: true) {
+  "token0 + token1 + duration + timestamp"
+  id: Bytes!
+  token0: Bytes!
+  token1: Bytes!
+  "Candle duration in seconds (e.g. 3600 = 1h, 86400 = 1d)"
+  duration: BigInt!
+  "Candle open timestamp (Unix seconds)"
+  timestamp: BigInt!
+  open: BigDecimal!
+  close: BigDecimal!
+  low: BigDecimal!
+  high: BigDecimal!
+}
+
+"The most recent completed candle for a token pair at a given duration"
+type LastCandle @entity {
+  "token0 + token1 + duration"
+  id: Bytes!
+  token0: Bytes!
+  token1: Bytes!
+  duration: BigInt!
+  timestamp: BigInt!
+  volume: BigDecimal!
+  open: BigDecimal!
+  close: BigDecimal!
+  low: BigDecimal!
+  high: BigDecimal!
+}
