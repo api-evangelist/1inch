@@ -2,6 +2,13 @@
   "repo": "1inch",
   "feeds": [
     {
+      "source": "https://1inch.com/blog",
+      "feed_url": "https://1inch.com/blog",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
       "source": "https://x.com/1inch",
       "feed_url": "https://x.com/1inch",
       "title": "",
@@ -9,6 +16,6 @@
       "method": "none"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-01T23:35:02Z"
+  "post_count": 1,
+  "fetched": "2026-06-14T20:42:17Z"
 }
