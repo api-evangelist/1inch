@@ -3,12 +3,12 @@
   "feeds": [
     {
       "source": "https://blog.1inch.io",
-      "feed_url": "https://1inch.com/blog",
-      "title": "1inch Blog",
-      "saved": 2,
-      "method": "html-scrape"
+      "feed_url": "",
+      "saved": 3,
+      "method": "agent-scrape"
     }
   ],
-  "post_count": 3,
-  "fetched": "2026-06-21T17:00:00Z"
+  "post_count": 6,
+  "fetched": "2026-06-27T12:21:51Z",
+  "agent_pulled": "2026-06-27"
 }
