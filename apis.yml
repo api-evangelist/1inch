@@ -222,6 +222,10 @@ apis:
   - type: Documentation
     url: https://business.1inch.com/portal/documentation
 common:
+- type: TrustCenter
+  url: security/1inch-trust-center.yml
+- type: DomainSecurity
+  url: security/1inch-domain-security.yml
 - type: Website
   url: https://1inch.io
 - type: Portal

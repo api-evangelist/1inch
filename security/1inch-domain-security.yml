@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: 1inch.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 14 09:28:31 2026 GMT
+  hsts: false
+- host: portal.1inch.dev
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 29 00:36:27 2026 GMT
+  hsts: false
+- host: business.1inch.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 16 19:25:58 2026 GMT
+  hsts: false
+domains:
+- domain: 1inch.io
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: 1inch.dev
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
