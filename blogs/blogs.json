@@ -2,13 +2,14 @@
   "repo": "1inch",
   "feeds": [
     {
-      "source": "https://blog.1inch.io",
-      "feed_url": "",
-      "saved": 3,
-      "method": "agent-scrape"
+      "source": "https://x.com/1inch",
+      "feed_url": "https://x.com/1inch",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 6,
-  "fetched": "2026-06-27T12:21:51Z",
+  "fetched": "2026-07-11T11:50:51Z",
   "agent_pulled": "2026-06-27"
 }
