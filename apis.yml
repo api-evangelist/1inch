@@ -222,6 +222,10 @@ apis:
   - type: Documentation
     url: https://business.1inch.com/portal/documentation
 common:
+- type: AgentCard
+  url: a2a/1inch-a2a.yml
+  name: A2A Agent Card
+  description: Agent Card served at /.well-known/agent-card.json (conformant against A2A 1.0.0).
 - type: TrustCenter
   url: security/1inch-trust-center.yml
 - type: DomainSecurity

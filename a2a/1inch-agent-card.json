@@ -1,0 +1,195 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "1inch Business Agent",
+  "description": "Agent interface for the 1inch Business Web3 API platform: documentation search, SDK examples, swap quotes & execution (Classic, Fusion, cross-chain), limit orders, and product APIs (portfolio, prices, token, gas) across 14+ chains. Implemented as a remote MCP server.",
+  "url": "https://api.1inch.com/mcp/protocol",
+  "preferredTransport": "JSONRPC",
+  "provider": {
+    "organization": "1inch (Degensoft Ltd.)",
+    "url": "https://business.1inch.com"
+  },
+  "iconUrl": "https://business.1inch.com/portal/favicon/favicon-128x128.png",
+  "version": "1.0.0",
+  "documentationUrl": "https://business.1inch.com/portal/documentation/ai-integration",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "additionalInterfaces": [
+    {
+      "transport": "JSONRPC",
+      "url": "https://api.1inch.com/mcp/protocol"
+    }
+  ],
+  "supportedInterfaces": [
+    {
+      "transport": "JSONRPC",
+      "url": "https://api.1inch.com/mcp/protocol"
+    }
+  ],
+  "securitySchemes": {
+    "oauth2": {
+      "type": "oauth2",
+      "description": "OAuth 2.0 authorization code flow via the 1inch Business Portal. Required for swap, orderbook, and product API skills; documentation skills are public.",
+      "flows": {
+        "authorizationCode": {
+          "authorizationUrl": "https://api.1inch.com/mcp/oauth/authorize",
+          "tokenUrl": "https://api.1inch.com/mcp/oauth/token",
+          "scopes": {}
+        }
+      }
+    }
+  },
+  "skills": [
+    {
+      "id": "search",
+      "name": "Search documentation",
+      "description": "Search the 1inch Business documentation and API reference (Typesense-backed). Public, read-only.",
+      "tags": [
+        "docs",
+        "search",
+        "public"
+      ],
+      "examples": [
+        "How do I integrate the 1inch Fusion swap API?"
+      ]
+    },
+    {
+      "id": "list_examples",
+      "name": "List SDK examples",
+      "description": "List available 1inch SDK code examples. Public, read-only.",
+      "tags": [
+        "sdk",
+        "examples",
+        "public"
+      ],
+      "examples": [
+        "What 1inch SDK examples are available?"
+      ]
+    },
+    {
+      "id": "get_example",
+      "name": "Get SDK example source",
+      "description": "Fetch the full source of a 1inch SDK code example by id. Public, read-only.",
+      "tags": [
+        "sdk",
+        "examples",
+        "public"
+      ],
+      "examples": [
+        "Show me the cross-chain swap SDK example"
+      ]
+    },
+    {
+      "id": "aqua",
+      "name": "Aqua strategy analytics",
+      "description": "Read 1inch Aqua shared-liquidity analytics: maker TVL, fees and APY, a maker's strategies, and per-strategy state, on-chain activity and volume series. Public, read-only.",
+      "tags": [
+        "aqua",
+        "liquidity",
+        "market-making",
+        "analytics",
+        "strategies",
+        "public"
+      ],
+      "examples": [
+        "What is the TVL and APY for Aqua maker 0x1234...?",
+        "List the currently open Aqua strategies on Base"
+      ]
+    },
+    {
+      "id": "swap",
+      "name": "Swap tokens (best rate, gasless, cross-chain)",
+      "description": "Quote and execute token swaps for the best on-chain rate. Classic (DEX aggregation via Pathfinder), Fusion (gasless, intent-based, MEV-protected Dutch auction), and Fusion+ (cross-chain without bridges, incl. EVM to Solana). Requires authentication.",
+      "tags": [
+        "swap",
+        "token-swap",
+        "exchange-tokens",
+        "trade",
+        "best-rate",
+        "best-price",
+        "quote",
+        "dex-aggregation",
+        "intent-swap",
+        "fusion",
+        "gasless",
+        "mev-protection",
+        "cross-chain",
+        "fusion-plus",
+        "bridge",
+        "defi",
+        "authenticated"
+      ],
+      "examples": [
+        "Get me a quote to swap 1000 USDC to DAI on Ethereum",
+        "What's the best rate to swap 2 ETH for USDC?",
+        "Swap 500 USDC to ETH gas-free with MEV protection",
+        "Bridge 1000 USDC from Ethereum to Solana"
+      ]
+    },
+    {
+      "id": "orderbook",
+      "name": "Orderbook (limit orders)",
+      "description": "Build, create, list, and cancel limit orders. Requires authentication.",
+      "tags": [
+        "limit-orders",
+        "defi",
+        "authenticated"
+      ],
+      "examples": [
+        "List my open limit orders on Ethereum"
+      ]
+    },
+    {
+      "id": "product_api",
+      "name": "Product API proxy",
+      "description": "Authenticated proxy to 1inch product APIs: portfolio, spot prices, token metadata, gas prices and more.",
+      "tags": [
+        "portfolio",
+        "prices",
+        "token",
+        "gas",
+        "authenticated"
+      ],
+      "examples": [
+        "Check portfolio for wallet 0x3A766281Ac78D82449CF58d085e4fbB4A9E3a723"
+      ]
+    },
+    {
+      "id": "walletconnect",
+      "name": "WalletConnect (EVM)",
+      "description": "Non-custodial WalletConnect flow: pair a wallet, sign messages, and send transactions; execute swaps and orders when a session is active. Requires authentication.",
+      "tags": [
+        "wallet",
+        "walletconnect",
+        "evm",
+        "authenticated"
+      ],
+      "examples": [
+        "Connect my wallet and send the swap transaction"
+      ]
+    },
+    {
+      "id": "debug",
+      "name": "Request log lookup",
+      "description": "Look up recent 1inch API request logs for troubleshooting. Authenticated, read-only.",
+      "tags": [
+        "debug",
+        "troubleshooting",
+        "authenticated"
+      ],
+      "examples": [
+        "Why did my last swap request fail?"
+      ]
+    }
+  ]
+}
