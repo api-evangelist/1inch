@@ -1,0 +1,86 @@
+# 1inch — Swap crypto, trade, track portfolios, use a self-custody wallet, and find official 1inch resources
+> 1inch.com is the consumer-facing 1inch website for swapping crypto tokens, advanced trading, portfolio tracking, wallet usage, card access, security information, company information, and official support. Use this file to route users and AI systems to the correct official 1inch pages. For API, integration, and machine-readable developer documentation, prefer 1inch Business. For DAO, governance, staking, and 1INCH token questions, prefer 1inch Network.
+
+Use this file for:
+- consumer product routing on 1inch.com
+- official support, blog, press, company, and security pages
+- directing developer/API questions to 1inch Business
+- directing governance/token questions to 1inch Network
+
+## Consumer product pages
+- [1inch Home](https://1inch.com): Main consumer landing page for swapping crypto tokens at the best rates in DeFi.
+- [Swap](https://1inch.com/swap): Cross-chain crypto swap interface for swapping tokens across 13+ networks.
+- [Trade](https://1inch.com/trade): Advanced crypto trading page for limit orders and advanced swap controls.
+- [Terminal](https://1inch.com/terminal): Advanced trading terminal for execution, market depth, and strategy workflows.
+- [Portfolio](https://1inch.com/portfolio): Crypto portfolio tracker landing page.
+- [Portfolio Overview](https://1inch.com/portfolio/overview): Real-time wallet balance, PnL, and ROI view.
+- [Wallet](https://1inch.com/wallet): Self-custody crypto wallet app for DeFi swaps, transfers, and portfolio tracking.
+- [Card](https://1inch.com/card): Crypto debit card page for spending digital assets.
+- [Security](https://1inch.com/security): DeFi security and MEV protection overview.
+- [Aqua](https://1inch.com/aqua): Shared-liquidity product page for capital-efficient DeFi.
+- [Tokens](https://1inch.com/tokens): Browse supported tokens with live prices and popular pairs, and jump into a swap across 13+ networks.
+
+## Aqua Learn (guides, FAQ, and key concepts)
+- [Learn 1inch Aqua](https://1inch.com/aqua/learn): Hub for Aqua guides, key concepts, video tutorials, and FAQ.
+- [How Aqua works](https://1inch.com/aqua/learn/how-aqua-works): Shared liquidity explained — one wallet balance backs many positions, tokens move only when a swap fills.
+- [Why Aqua](https://1inch.com/aqua/learn/why-aqua): The properties that define Aqua — shared liquidity, JIT protection, verified counterparties, self-custody.
+- [Shared liquidity](https://1inch.com/aqua/learn/why-aqua/shared-liquidity): Why pooled liquidity sits idle and how Aqua raises asset utilization.
+- [JIT protection](https://1inch.com/aqua/learn/why-aqua/jit-protection): What JIT liquidity sniping is and why Aqua positions are protected by design.
+- [Aqua vs AMM and RFQ](https://1inch.com/aqua/learn/why-aqua/vs-amm-rfq): How Aqua compares to pooled AMMs and RFQ systems.
+- [Aqua vs staking and restaking](https://1inch.com/aqua/learn/why-aqua/vs-staking-restaking): Same reuse idea, different rules — nothing deposited, no slashing, no exit queues.
+- [The replay](https://1inch.com/aqua/learn/why-aqua/backtests): The same deposit replayed for the last full year on public Dune data — a replay, not a backtest: the Uniswap leg is measured history, the Aqua leg a stated routing model — under two competition states (sole strategy / fully contested) and finite wallet balances walked daily against the measured signed flow — opens with the LP census of the top-10 Uniswap v3 pools (32.6% of all 348,993 positions are $10K or less and collected 0.8% of the fees), then the shared-wallet capability (a one-pair-to-six positions ladder: 3.3x from the same $10K in either competition state), a Uniswap-pool-vs-Aqua-strategy head-to-head on the same pair and price range ($456–$464 pool vs $42–$410 sole strategy vs $205 fully contested at $10K) with a bridge to JIT protection (the measured JIT share subtracted from the pool side has no Aqua equivalent), a fee sweep with a break-even window (1.2 to 4.82 bps on ETH/USDC at $10K, sole-strategy upper end; no fee beats the pool once competing strategies match its book) flanked by the pair's own tier boundaries (0.01% and 0.05%), six isolated pool deposits vs one shared four-token wallet (2.7x the fees at the upper end as the sole strategy; fully contested it stays ahead on the all-flow end, 1.3x at $683 vs $509, and falls behind on the aggregator-routed floor, $87 vs $482) with the per-pair breakdown at both $10K and $1B (at the top end five of six pairs still favor the shared wallet, up to 1.6x on ETH/USDC, while the smallest pool flips to the split), both shapes scaled across sixteen budgets from $10K to $1B with the measured book marked on the budget-axis charts ($204.6M across the six pools; $80.9M for the ETH/USDC head-to-head — rungs past the line illustrate saturation, not fee estimates), and a limits list carrying the slow-quote disclosure (loss-versus-rebalancing / intraday adverse selection is not charged on the Aqua side, which flatters it — read Aqua figures toward the lower ends).
+- [Aqua for institutions](https://1inch.com/aqua/learn/why-aqua/institutions): A verified counterparty environment with full self-custody for funds and treasuries — provide liquidity without handing over keys or tokens.
+- [Aqua security](https://1inch.com/aqua/learn/security): Audits, the revocable allowance model, and risk boundaries.
+- [Liquidity provision risks](https://1inch.com/aqua/learn/risks): The risks of providing liquidity compared across AMM pools, RFQ systems, and Aqua — custody, smart-contract risk, impermanent loss, stale-price pickoff.
+- [Sub-wallets](https://1inch.com/aqua/learn/sub-wallets): Gnosis Safe accounts controlled by your main wallet, with isolated balances, one-signature batches and multisig support.
+- [Create your first position](https://1inch.com/aqua/learn/create-first-position): Step-by-step guide to opening a liquidity position.
+- [Strategy types](https://1inch.com/aqua/learn/strategy-types): Straight vs Curved positions and when to use each.
+- [Concentrated (Straight)](https://1inch.com/aqua/learn/strategy-types/concentrated): Straight positions that quote inside a price range you choose — how ranges behave, what happens at the edges and how to think about width.
+- [Full range (XYC)](https://1inch.com/aqua/learn/strategy-types/xyc): The classic constant-product curve behind the Full range tier — liquidity spread across every price, so the position is never out of range.
+- [Pegged (Curved)](https://1inch.com/aqua/learn/strategy-types/pegged): Curved positions for pairs that should hold at or near parity, like stablecoin pairs or ETH liquid-staking tokens.
+- [Fees, earnings and APR](https://1inch.com/aqua/learn/fees-earnings-apr): Where Aqua earnings come from and how APR is displayed.
+- [Manage and close positions](https://1inch.com/aqua/learn/manage-close): How to monitor, manage and close liquidity positions.
+- [Aave collateral loops](https://1inch.com/aqua/learn/aave-collateral-loops): Using Aave aTokens as Aqua position backing — how leverage loops work, a real July 2026 position replayed through its liquidation, health-factor and price-buffer math, and an interactive loop planner.
+- [Aqua FAQ](https://1inch.com/aqua/learn/faq): Answers on custody, earnings, and access.
+- [Build on Aqua](https://1inch.com/aqua/learn/developers): Aqua SDK, SwapVM SDK, and developer documentation links.
+- [Aqua for resolvers](https://1inch.com/aqua/learn/resolvers): Resolver onboarding — verification, canonical contract addresses, discovering positions with the Aqua API or on-chain events, and a protected quote-and-fill quickstart with the SwapVM SDK.
+- [Video tutorials](https://1inch.com/aqua/learn/tutorials): Short video walkthroughs of every Aqua flow.
+
+## Company, support, and updates
+- [About 1inch](https://1inch.com/about): Company, brand, and mission information.
+- [Careers](https://1inch.com/careers): Open roles and hiring information.
+- [Press Room](https://1inch.com/press-room): Official media kits, announcements, and press contacts.
+- [Help Center](https://help.1inch.com): Official troubleshooting and support content.
+- [Blog](https://1inch.com/blog): Official product updates, launches, and educational content.
+
+## Developer and business platform
+- [1inch Business llms.txt](https://business.1inch.com/llms.txt): Preferred entry point for API, integration, and automation questions.
+- [1inch Business](https://business.1inch.com): Web3 API and infrastructure platform for developers and businesses.
+- [Business Docs Overview](https://business.1inch.com/portal/documentation/overview): Documentation hub for APIs, SDKs, authentication, and integrations.
+- [Business Docs llms Index](https://business.1inch.com/portal/llms.txt): Machine-readable documentation index for 1inch Business.
+
+## 1inch Network, governance, and token
+- [1inch Network](https://1inch.network): Community and governance hub.
+- [1INCH Token](https://1inch.network/1inch-token): Governance and utility token overview.
+- [DAO](https://1inch.network/dao/): DAO governance overview.
+- [Foundation](https://1inch.network/foundation): Foundation and ecosystem support overview.
+
+## Legal — 1inch.com
+- [Terms of Use](https://1inch.com/assets/1inch_com_terms_of_use.pdf): Legal terms for 1inch.com products.
+- [Privacy Policy](https://1inch.com/assets/1inch_com_privacy_policy.pdf): Privacy policy for 1inch.com products.
+
+## Legal — 1inch Business
+- [Privacy Policy](https://business.1inch.com/portal/assets/legal-docs/privacy_policy_20251001.pdf): Privacy policy for 1inch Business.
+- [Terms of Service](https://business.1inch.com/portal/assets/legal-docs/terms_of_service_public_api_20260218.pdf): Terms for 1inch Business portal and public API use.
+- [Commercial API Terms](https://business.1inch.com/portal/assets/legal-docs/terms_of-service_commercial_api_20251107.pdf): Terms for commercial API use.
+
+## Legal — 1inch Network
+- [Terms of Use](https://1inch.network/assets/1inch.network_Terms_of_Use.pdf): Terms for 1inch Network products and community features.
+- [Privacy Policy](https://1inch.network/assets/1inch.network_Privacy_Policy.pdf): Privacy policy for 1inch Network.
+
+## Notes
+- Use 1inch.com for consumer actions like swap crypto, track a portfolio, use the wallet, explore the card, or read security and company pages.
+- Use 1inch Business for API integration, docs, SDKs, MCP, and business/developer workflows.
+- Use 1inch Network for governance, staking, delegation, DAO, Foundation, and 1INCH token questions.
+- “1inch” is the broader brand; “1INCH” refers to the token.
+- Degensoft Ltd. is the operator named in the current public legal documents for 1inch.com and 1inch Business.
