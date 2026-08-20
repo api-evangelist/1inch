@@ -47,6 +47,10 @@ apis:
   baseURL: https://api.1inch.dev/orderbook
   tags:
   - Limit Orders
+  - Order Book
+  - Trading
+  tags_raw:
+  - Limit Orders
   - Orderbook
   - Trading
   properties:
@@ -72,6 +76,10 @@ apis:
   humanURL: https://business.1inch.com/portal/documentation
   baseURL: https://api.1inch.dev/token
   tags:
+  - Token
+  - Metadata
+  - List
+  tags_raw:
   - Token
   - Metadata
   - Lists
@@ -111,6 +119,10 @@ apis:
   humanURL: https://business.1inch.com/portal/documentation
   baseURL: https://api.1inch.dev/balance
   tags:
+  - Balances
+  - Wallets
+  - Allowance
+  tags_raw:
   - Balance
   - Wallet
   - Allowance
@@ -125,6 +137,10 @@ apis:
   baseURL: https://api.1inch.dev/portfolio
   tags:
   - Portfolio
+  - PNL
+  - Positions
+  tags_raw:
+  - Portfolio
   - PnL
   - Positions
   properties:
@@ -137,6 +153,10 @@ apis:
   humanURL: https://business.1inch.com/portal/documentation
   baseURL: https://api.1inch.dev/tx-gateway
   tags:
+  - Transaction
+  - Broadcast
+  - Tracking
+  tags_raw:
   - Transactions
   - Broadcast
   - Tracking
@@ -150,6 +170,10 @@ apis:
   humanURL: https://business.1inch.com/portal/documentation
   baseURL: https://api.1inch.dev/history
   tags:
+  - History
+  - Transaction
+  - Wallets
+  tags_raw:
   - History
   - Transactions
   - Wallet
@@ -202,6 +226,10 @@ apis:
   humanURL: https://business.1inch.com/portal/documentation
   baseURL: https://api.1inch.dev/nft
   tags:
+  - NFT
+  - Collection
+  - Metadata
+  tags_raw:
   - NFT
   - Collections
   - Metadata
