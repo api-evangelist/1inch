@@ -58,7 +58,7 @@ apis:
   baseURL: https://api.1inch.dev/orderbook
   tags:
   - Limit Orders
-  - Order Book
+  - Orderbook
   - Trading
   tags_raw:
   - Limit Orders
@@ -148,7 +148,7 @@ apis:
   baseURL: https://api.1inch.dev/portfolio
   tags:
   - Portfolio
-  - PNL
+  - PnL
   - Positions
   tags_raw:
   - Portfolio
