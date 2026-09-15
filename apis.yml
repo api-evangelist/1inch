@@ -296,6 +296,8 @@ common:
   url: https://blog.1inch.io
 - type: LlmsText
   url: https://1inch.com/llms.txt
+- type: Support
+  url: https://business.1inch.com/contact
 integrations:
 - name: Ethereum
 - name: Base
