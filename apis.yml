@@ -279,6 +279,12 @@ apis:
   - type: Documentation
     url: https://business.1inch.com/portal/documentation
 common:
+- type: Plans
+  url: plans/1inch-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/1inch-rate-limits.yml
+- type: FinOps
+  url: finops/1inch-finops.yml
 - type: AgentCard
   url: a2a/1inch-a2a.yml
   name: A2A Agent Card
