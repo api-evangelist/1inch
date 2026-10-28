@@ -64,4 +64,125 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-1inch — DEX aggregation + Fusion+ + Pathfinder Network
+1inch is a leading DeFi aggregator providing best-execution swaps across decentralized exchanges, an intent-based Fusion order flow, cross-chain Fusion+ swaps, limit orders, and rich market data. The 1inch Developer Portal (business.1inch.com/portal) exposes 13+ REST APIs covering Swap, Orderbook, Spot Price, Token, Token Details, Charts, Balance, Portfolio, Transaction Gateway, History, Traces, Gas Price, Web3 RPC, NFT, and Domains across 14+ EVM and non-EVM chains, distributed under a single API key.
+
+**Areas:** DeFi · DEX Aggregator · Swap · Limit Orders · Fusion · Web3 · RPC · Market Data · A2A
+
+## 1inch on APIs.io
+
+Everything profiled for 1inch is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/1inch/](https://apis.io/providers/1inch/)** — or go straight to one of the APIs or properties below.
+
+### APIs (15)
+
+- [1inch Swap API](https://apis.io/apis/1inch/swap-api/) — Returns optimal swap routes and ready-to-sign transaction calldata across aggregated DEX liquidity. Supports Classic Swap, intent-based Fusion, and…
+- [1inch Orderbook API](https://apis.io/apis/1inch/orderbook-api/) — Limit Order Protocol orderbook — create, query, fill, and cancel signed limit orders across supported EVM chains.
+- [1inch Spot Price API](https://apis.io/apis/1inch/price-api/) — Real-time USD and reference spot prices for tokens across supported networks, sourced from on-chain liquidity.
+- [1inch Token API](https://apis.io/apis/1inch/token-api/) — Token metadata, lists, search, and verification across all 1inch-supported networks.
+- [1inch Token Details API](https://apis.io/apis/1inch/token-details-api/) — Enriched token details including market metrics, price history, and trading stats for individual tokens.
+- [1inch Charts API](https://apis.io/apis/1inch/charts-api/) — Historical OHLCV chart data for tokens and trading pairs across supported networks.
+- [1inch Balance API](https://apis.io/apis/1inch/balance-api/) — Token balance lookups and allowance checks for any wallet across supported chains, returning balances in a unified JSON schema.
+- [1inch Portfolio API](https://apis.io/apis/1inch/portfolio-api/) — Cross-chain portfolio aggregation — wallet positions, protocol exposures, profit and loss, fees, and value over time.
+- [1inch Transaction Gateway API](https://apis.io/apis/1inch/transaction-gateway-api/) — Submission gateway that broadcasts signed transactions and tracks status across supported EVM chains.
+- [1inch History API](https://apis.io/apis/1inch/history-api/) — Unified wallet transaction history across all supported chains, decoded into protocol-aware events (swaps, transfers, approvals, liquidity actions).
+- [1inch Traces API](https://apis.io/apis/1inch/traces-api/) — Detailed transaction trace data for debugging and analytics across supported EVM chains.
+- [1inch Gas Price API](https://apis.io/apis/1inch/gas-price-api/) — Current gas-price recommendations (low / medium / high / instant) for supported EVM chains, accounting for EIP-1559 base and priority fees.
+- [1inch Web3 RPC API](https://apis.io/apis/1inch/web3-rpc-api/) — Hosted JSON-RPC endpoints for 14+ EVM and non-EVM networks, exposed through the 1inch API key for unified rate limiting and access control.
+- [1inch NFT API](https://apis.io/apis/1inch/nft-api/) — Wallet NFT holdings, collection metadata, and floor prices across supported chains.
+- [1inch Domains API](https://apis.io/apis/1inch/domains-api/) — Reverse and forward resolution for Web3 naming systems (ENS, Unstoppable Domains, and other supported registries).
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [1inch GraphQL (The Graph Subgraphs)](https://apis.io/graphqls/1inch/1inch-graphql/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [1Inch Domain Security](https://apis.io/security/1inch/1inch-domain-security/)
+- [1Inch Trust Center](https://apis.io/security/1inch/1inch-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [1Inch Plans Pricing](https://apis.io/plans/1inch/1inch-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [1Inch Rate Limits](https://apis.io/rate-limits/1inch/1inch-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [1Inch Finops](https://apis.io/finops/1inch/1inch-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://1inch.io)
+- [Documentation](https://business.1inch.com/portal/documentation)
+- [Support](https://business.1inch.com/contact)
+- [Blog](https://blog.1inch.io)
+
+## API Evangelist rating
+
+**Kin Score 21.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 29.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 13.2 |
+
+**Agent readiness 19.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | conformant |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/1inch/](https://apis.io/providers/1inch/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for 1inch: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/1inch/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
